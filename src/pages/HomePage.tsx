@@ -24,7 +24,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'The Smart Girl Edit',
-    url: typeof window !== 'undefined' ? window.location.origin : 'https://thesmartgirledit.com',
+    url: typeof window !== 'undefined' ? `${window.location.origin}/blog-about-lifestyle` : 'https://thesmartgirledit.com/blog-about-lifestyle',
     description:
       'Discover a chic blog about lifestyle for women. Explore simple skincare routines, capsule wardrobes, and mindful money habits. Start reading our curated edit!',
     publisher: {
@@ -81,7 +81,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
       <SEOHead
         title="Blog About Lifestyle: Daily Tips | The Smart Girl Edit"
         description="Discover a chic blog about lifestyle for women. Explore simple skincare routines, capsule wardrobes, and mindful money habits. Start reading our curated edit!"
-        canonicalPath="/"
+        canonicalPath="/blog-about-lifestyle"
         ogType="website"
         image={heroImg}
         jsonLd={[websiteSchema, faqSchema]}

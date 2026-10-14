@@ -34,15 +34,15 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
         <ul className="divide-y divide-[#F0EBE3] text-sm text-[#2E2722]">
           <li>
             <a
-              href="/"
+              href="/blog-about-lifestyle"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigate('/');
+                onNavigate('/blog-about-lifestyle');
               }}
               className="py-2.5 flex items-center justify-between hover:text-[#8B6B52] transition-colors"
             >
               <span>Homepage (Blog About Lifestyle)</span>
-              <span className="text-xs text-[#8C7E72] font-mono">/</span>
+              <span className="text-xs text-[#8C7E72] font-mono">/blog-about-lifestyle</span>
             </a>
           </li>
           {BLOG_POSTS.map((post) => (
@@ -64,7 +64,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
       </div>
 
       <button
-        onClick={() => onNavigate('/')}
+        onClick={() => onNavigate('/blog-about-lifestyle')}
         className="px-6 py-3 text-xs uppercase tracking-widest font-semibold bg-[#2E2722] text-white hover:bg-[#4A3F37] transition-colors flex items-center gap-2"
       >
         <ArrowLeft className="w-3.5 h-3.5" />

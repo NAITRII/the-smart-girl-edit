@@ -10,17 +10,29 @@ import { NotFoundPage } from './pages/NotFoundPage';
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      return window.location.pathname || '/';
+      const path = window.location.pathname || '/blog-about-lifestyle';
+      return path === '/' ? '/blog-about-lifestyle' : path;
     }
-    return '/';
+    return '/blog-about-lifestyle';
   });
 
   const [newsletterOpen, setNewsletterOpen] = useState(false);
 
+  // If visited via root `/`, seamlessly route to `/blog-about-lifestyle`
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname === '/' || window.location.pathname === '') {
+        window.history.replaceState({}, '', '/blog-about-lifestyle');
+        setCurrentPath('/blog-about-lifestyle');
+      }
+    }
+  }, []);
+
   // Sync with browser popstate (Back / Forward buttons)
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
+      const path = window.location.pathname || '/blog-about-lifestyle';
+      setCurrentPath(path === '/' ? '/blog-about-lifestyle' : path);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -37,10 +49,15 @@ export default function App() {
 
   // Route matching
   const renderCurrentView = () => {
-    const cleanPath = (currentPath.split('?')[0] || '/').replace(/\/$/, '') || '/';
+    const cleanPath = (currentPath.split('?')[0] || '/blog-about-lifestyle').replace(/\/$/, '') || '/blog-about-lifestyle';
 
-    // 1. Homepage: `/`
-    if (cleanPath === '/') {
+    // 1. Homepage: `/blog-about-lifestyle` (with aliases for `/`, `/blogs-about-lifestyle`, `/lifestyle-blog`)
+    if (
+      cleanPath === '/blog-about-lifestyle' ||
+      cleanPath === '/' ||
+      cleanPath === '/blogs-about-lifestyle' ||
+      cleanPath === '/lifestyle-blog'
+    ) {
       return (
         <HomePage
           onNavigate={handleNavigate}

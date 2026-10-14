@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', path: '/' },
+    { label: 'Home', path: '/blog-about-lifestyle' },
     { label: 'Beauty', path: '/blogs/skincare-routine-for-beginners' },
     { label: 'Style', path: '/blogs/capsule-wardrobe-essentials-for-women' },
     { label: 'Money', path: '/blogs/how-to-manage-money-in-your-20s' },
@@ -35,8 +35,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
         {/* Zone 1: Brand Wordmark (Single text element in editorial display font) */}
         <a
-          href="/"
-          onClick={(e) => handleLinkClick(e, '/')}
+          href="/blog-about-lifestyle"
+          onClick={(e) => handleLinkClick(e, '/blog-about-lifestyle')}
           className="text-2xl sm:text-3xl font-serif font-semibold tracking-tight text-[#221E1B] hover:text-[#7A5B45] transition-colors whitespace-nowrap shrink-0"
         >
           The Smart Girl Edit
@@ -45,7 +45,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Zone 2: 4 Clean Single-Line Nav Links */}
         <nav className="hidden md:flex items-center gap-7 text-[13px] tracking-wide uppercase font-medium text-[#685F56]">
           {navLinks.map((link) => {
-            const isActive = currentPath === link.path;
+            const isActive =
+              link.path === '/blog-about-lifestyle'
+                ? currentPath === '/blog-about-lifestyle' || currentPath === '/'
+                : currentPath === link.path;
             return (
               <a
                 key={link.path}
@@ -90,18 +93,24 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#FAF8F5] border-b border-[#EAE3D9] px-6 py-6 space-y-4">
           <nav className="flex flex-col space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                onClick={(e) => handleLinkClick(e, link.path)}
-                className={`text-base font-serif py-1 ${
-                  currentPath === link.path ? 'text-[#8F6B52] font-semibold' : 'text-[#3E3832]'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                link.path === '/blog-about-lifestyle'
+                  ? currentPath === '/blog-about-lifestyle' || currentPath === '/'
+                  : currentPath === link.path;
+              return (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  onClick={(e) => handleLinkClick(e, link.path)}
+                  className={`text-base font-serif py-1 ${
+                    isActive ? 'text-[#8F6B52] font-semibold' : 'text-[#3E3832]'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
           <div className="pt-4 border-t border-[#EAE3D9]">
             <button

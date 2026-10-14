@@ -29,9 +29,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#3B342F]">
           {/* Brand & Manifesto */}
           <div className="md:col-span-5 space-y-4">
-            <span className="text-2xl lg:text-3xl font-serif text-[#FAF7F2] font-semibold tracking-tight block">
+            <a
+              href="/blog-about-lifestyle"
+              onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
+              className="text-2xl lg:text-3xl font-serif text-[#FAF7F2] font-semibold tracking-tight block hover:text-[#D8CFB4] transition-colors"
+            >
               The Smart Girl Edit
-            </span>
+            </a>
             <p className="text-sm text-[#A89E93] leading-relaxed max-w-md font-sans">
               The digital destination for ambitious young women navigating beauty rituals,
               capsule style, personal finance, digital trends, and intentional daily living with
@@ -48,6 +52,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Curated Edits
             </h4>
             <ul className="space-y-2.5 text-sm text-[#BDB2A5]">
+              <li>
+                <a
+                  href="/blog-about-lifestyle"
+                  onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
+                  className="hover:text-white transition-colors flex items-center gap-1 font-medium text-[#FAF7F2]"
+                >
+                  <span>Blog About Lifestyle (Home)</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="/blogs/skincare-routine-for-beginners"

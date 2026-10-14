@@ -95,13 +95,13 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin + '/',
+        item: window.location.origin + '/blog-about-lifestyle',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: post.category,
-        item: window.location.origin + '/',
+        item: window.location.origin + '/blog-about-lifestyle',
       },
       {
         '@type': 'ListItem',
@@ -155,8 +155,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
         <div className="max-w-4xl mx-auto px-6 flex items-center justify-between text-xs text-[#7A6F64]">
           <div className="flex items-center gap-2">
             <a
-              href="/"
-              onClick={(e) => handleLink(e, '/')}
+              href="/blog-about-lifestyle"
+              onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
               className="flex items-center gap-1 hover:text-[#1F1B18] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
@@ -529,8 +529,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               Read Next in The Edit
             </h3>
             <a
-              href="/"
-              onClick={(e) => handleLink(e, '/')}
+              href="/blog-about-lifestyle"
+              onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
               className="text-xs uppercase tracking-wider font-semibold text-[#8B6B52] hover:underline"
             >
               All Articles →
