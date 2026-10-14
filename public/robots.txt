@@ -1,0 +1,8 @@
+# Robots.txt for The Smart Girl Edit
+# Allow search engines to crawl all public editorial pages and assets
+
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://thesmartgirledit.com/sitemap.xml

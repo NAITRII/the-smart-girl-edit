@@ -1,0 +1,6 @@
+{
+  "name": "The Smart Girl Edit",
+  "description": "The chic, modern editorial lifestyle guide for young women—curated advice on beauty, capsule style, beginner budgeting, and everyday intentional living.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

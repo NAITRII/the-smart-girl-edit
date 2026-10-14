@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Homepage: Blog About Lifestyle -->
+  <url>
+    <loc>https://thesmartgirledit.com/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 1. Skincare Routine for Beginners (Beauty) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/skincare-routine-for-beginners</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 2. Viral Beauty Products: Worth the Hype or Not? (Beauty) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/viral-beauty-products-worth-the-hype</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 3. Capsule Wardrobe Essentials You’ll Actually Wear (Style) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/capsule-wardrobe-essentials-for-women</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. How to Find Your Personal Style (Style) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/how-to-find-your-personal-style</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. How to Manage Money in Your 20s (Money) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/how-to-manage-money-in-your-20s</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Best Budgeting Apps for Beginners (Money) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/best-budgeting-apps-for-beginners</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. How to Stop Impulse Buying (Money) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/how-to-stop-impulse-buying</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. AI Tools Every College Girl Should Know (Digital) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/ai-tools-every-college-girl-should-know</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. How Social Media Influences Your Shopping Habits (Digital) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/how-social-media-influences-your-shopping-habits</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 9. How to Tell If an Online Product Is Worth Buying (Life) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/how-to-tell-if-an-online-product-is-worth-buying</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 10. A Realistic Self-Care Routine for Busy Girls (Life) -->
+  <url>
+    <loc>https://thesmartgirledit.com/blogs/a-realistic-self-care-routine-for-busy-girls</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
