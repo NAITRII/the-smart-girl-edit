@@ -148,19 +148,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Asset */}
-            <div className="lg:col-span-5 relative">
-              <div className="border border-[#DDD3C7] p-2 bg-white shadow-xl">
+            {/* Right Column: Hero Visual Asset (Small size editorial frame) */}
+            <div className="lg:col-span-5 relative flex flex-col items-center">
+              <div className="border border-[#DDD3C7] p-2 bg-white shadow-lg w-full max-w-sm sm:max-w-md">
                 <ResponsiveImage
                   src={heroImg}
                   alt="Curated journal with morning thoughts, ceramic coffee mug, and sunglasses representing an intentional blog about lifestyle"
-                  aspectRatio="4:3"
+                  aspectRatio="16:9"
                   priority
-                  className="w-full"
+                  className="w-full max-h-[240px] sm:max-h-[270px] object-cover"
                 />
               </div>
               {/* Subtle caption */}
-              <p className="text-xs font-serif italic text-[#7C7166] mt-3 text-center">
+              <p className="text-xs font-serif italic text-[#7C7166] mt-2.5 text-center">
                 Fig. 1 — The art of the slow morning: journaling, intentional budgeting, and quiet focus.
               </p>
             </div>
@@ -175,8 +175,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
             <span className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
               Curated Departments
             </span>
-            <h2 className="text-3xl font-serif font-bold text-[#1F1B18]">
-              What Readers Discover in Our Beauty and Lifestyle Blog
+            <h2 className="text-3xl font-serif font-bold text-[#1F1B18] tracking-tight">
+              What Will You Discover in Our Beauty and Lifestyle Blog?
             </h2>
             <p className="text-sm text-[#665D54] leading-relaxed">
               Explore our core categories tailored specifically for young women navigating personal growth, style confidence, and financial wellness.
@@ -285,10 +285,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
       {/* Editor's Note & Mission Statement Banner */}
       <section className="my-16 bg-[#F4EDE2] border-y border-[#E2D8CC] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
-          <div className="w-16 h-16 mx-auto rounded-full overflow-hidden border-2 border-[#D6C7B6]">
+          <div className="w-14 h-14 mx-auto rounded-full overflow-hidden border-2 border-[#D6C7B6]">
             <img
               src={defaultAuthor.avatar}
-              alt={defaultAuthor.name}
+              alt="Portrait of Chloe Laurent, Founder and Editor-in-Chief of The Smart Girl Edit"
+              width={56}
+              height={56}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>

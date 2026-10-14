@@ -209,8 +209,10 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
         <div className="pt-4 flex items-center justify-center gap-3">
           <img
             src={post.author.avatar}
-            alt={post.author.name}
-            className="w-10 h-10 rounded-full object-cover border border-[#D5C7B7]"
+            alt={`Portrait of ${post.author.name}, ${post.author.role}`}
+            width={36}
+            height={36}
+            className="w-9 h-9 rounded-full object-cover border border-[#D5C7B7]"
           />
           <div className="text-left text-xs">
             <div className="font-semibold text-[#1F1B18]">{post.author.name}</div>
@@ -219,15 +221,15 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
         </div>
       </header>
 
-      {/* Featured Image Container */}
-      <div className="max-w-5xl mx-auto px-6 mb-12">
+      {/* Featured Image Container (Small size frame) */}
+      <div className="max-w-2xl mx-auto px-6 mb-10">
         <div className="border border-[#E2D8CC] p-2 bg-white shadow-md">
           <ResponsiveImage
             src={post.featuredImage}
-            alt={post.imageAlt}
+            alt={post.imageAlt || `Editorial feature image for ${post.title}`}
             aspectRatio="16:9"
             priority
-            className="w-full max-h-[550px]"
+            className="w-full max-h-[300px] sm:max-h-[340px] object-cover"
           />
         </div>
         <p className="text-xs font-serif italic text-[#7C7166] mt-2.5 text-center">
@@ -487,8 +489,10 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
         <div className="mt-12 p-8 bg-[#F5EFE7] border border-[#DDD3C7] flex flex-col sm:flex-row items-center sm:items-start gap-6">
           <img
             src={post.author.avatar}
-            alt={post.author.name}
-            className="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+            alt={`Portrait of ${post.author.name}, ${post.author.role}`}
+            width={56}
+            height={56}
+            className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
           />
           <div className="space-y-2 text-center sm:text-left">
             <span className="text-xs uppercase tracking-widest text-[#8B6B52] font-semibold">
@@ -531,9 +535,10 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
             <a
               href="/blog-about-lifestyle"
               onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
-              className="text-xs uppercase tracking-wider font-semibold text-[#8B6B52] hover:underline"
+              className="text-xs uppercase tracking-wider font-semibold text-[#8B6B52] hover:underline flex items-center gap-1"
             >
-              All Articles →
+              <span>Explore All Articles</span>
+              <span aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -543,15 +548,17 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                 key={related.id}
                 href={related.exactPath}
                 onClick={(e) => handleLink(e, related.exactPath)}
+                aria-label={`Read guide: ${related.title}`}
                 className="group border border-[#E2D8CC] bg-white p-5 flex flex-col justify-between hover:border-[#8B6B52] transition-colors"
               >
                 <div className="space-y-3">
-                  <div className="overflow-hidden">
+                  {/* Small Size Thumbnail */}
+                  <div className="overflow-hidden max-h-36 sm:max-h-40 bg-[#F2EDE4]">
                     <ResponsiveImage
                       src={related.featuredImage}
-                      alt={related.imageAlt}
+                      alt={related.imageAlt || `Editorial image for ${related.title}`}
                       aspectRatio="16:9"
-                      className="group-hover:scale-105 transition-transform duration-500"
+                      className="w-full max-h-36 sm:max-h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="text-xs text-[#8B6B52] uppercase tracking-wider font-semibold">
@@ -565,9 +572,12 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#2E2722] group-hover:text-[#8B6B52]">
-                  <span>Read Guide</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                <div className="pt-3 mt-4 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#2E2722] group-hover:text-[#8B6B52]">
+                  <span className="flex items-center gap-1">
+                    <span>Read Guide:</span>
+                    <span className="font-serif normal-case italic font-normal text-[#8B6B52] line-clamp-1">{related.title}</span>
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </div>
               </a>
             ))}

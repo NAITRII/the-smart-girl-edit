@@ -36,12 +36,16 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
       ? { width: 600, height: 600 }
       : { width: 800, height: 600 };
 
+  const safeAlt = alt?.trim()
+    ? alt.trim()
+    : 'The Smart Girl Edit curated editorial lifestyle illustration';
+
   return (
     <div className={`relative overflow-hidden bg-[#F2EDE4] ${aspectClass} ${className}`}>
       {!hasError ? (
         <img
           src={src}
-          alt={alt}
+          alt={safeAlt}
           width={dimensions.width}
           height={dimensions.height}
           loading={priority ? 'eager' : 'lazy'}
@@ -59,8 +63,8 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
           <span className="text-xs uppercase tracking-widest font-medium mb-1 text-[#8C7E72]">
             The Smart Girl Edit
           </span>
-          <p className="text-sm font-serif italic text-[#3E3832] max-w-[200px] line-clamp-2">
-            {alt}
+          <p className="text-xs font-serif italic text-[#3E3832] max-w-[200px] line-clamp-2">
+            {safeAlt}
           </p>
         </div>
       )}

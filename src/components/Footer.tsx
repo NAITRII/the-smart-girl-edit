@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#3B342F]">
           {/* Brand & Manifesto */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-4 space-y-4">
             <a
               href="/blog-about-lifestyle"
               onClick={(e) => handleLink(e, '/blog-about-lifestyle')}
@@ -47,11 +47,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           {/* Core Articles Links */}
+          {/* Curated Articles - Column 1 */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-[#FAF7F2]">
-              Curated Edits
+              Curated Edits (I)
             </h4>
-            <ul className="space-y-2.5 text-sm text-[#BDB2A5]">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#BDB2A5]">
               <li>
                 <a
                   href="/blog-about-lifestyle"
@@ -76,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleLink(e, '/blogs/viral-beauty-products-worth-the-hype')}
                   className="hover:text-white transition-colors"
                 >
-                  Viral Beauty Products: Worth It?
+                  Viral Beauty Products: Worth the Hype?
                 </a>
               </li>
               <li>
@@ -90,11 +91,38 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/blogs/how-to-find-your-personal-style"
+                  onClick={(e) => handleLink(e, '/blogs/how-to-find-your-personal-style')}
+                  className="hover:text-white transition-colors"
+                >
+                  How to Find Your Personal Style
+                </a>
+              </li>
+              <li>
+                <a
                   href="/blogs/how-to-manage-money-in-your-20s"
                   onClick={(e) => handleLink(e, '/blogs/how-to-manage-money-in-your-20s')}
                   className="hover:text-white transition-colors"
                 >
                   How to Manage Money in Your 20s
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Curated Articles - Column 2 */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-[#FAF7F2]">
+              Curated Edits (II)
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#BDB2A5]">
+              <li>
+                <a
+                  href="/blogs/how-to-stop-impulse-buying"
+                  onClick={(e) => handleLink(e, '/blogs/how-to-stop-impulse-buying')}
+                  className="hover:text-white transition-colors"
+                >
+                  How to Stop Impulse Buying
                 </a>
               </li>
               <li>
@@ -103,7 +131,25 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleLink(e, '/blogs/ai-tools-every-college-girl-should-know')}
                   className="hover:text-white transition-colors"
                 >
-                  AI Tools for College Girls
+                  AI Tools Every College Girl Should Know
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blogs/how-social-media-influences-your-shopping-habits"
+                  onClick={(e) => handleLink(e, '/blogs/how-social-media-influences-your-shopping-habits')}
+                  className="hover:text-white transition-colors"
+                >
+                  Social Media & Shopping Habits
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blogs/how-to-tell-if-an-online-product-is-worth-buying"
+                  onClick={(e) => handleLink(e, '/blogs/how-to-tell-if-an-online-product-is-worth-buying')}
+                  className="hover:text-white transition-colors"
+                >
+                  How to Tell If a Product Is Worth Buying
                 </a>
               </li>
               <li>
@@ -115,58 +161,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Realistic Self-Care Routine
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div className="md:col-span-2 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-[#FAF7F2]">
-              Pillars
-            </h4>
-            <ul className="space-y-2 text-sm text-[#BDB2A5]">
               <li>
                 <a
-                  href="/blogs/skincare-routine-for-beginners"
-                  onClick={(e) => handleLink(e, '/blogs/skincare-routine-for-beginners')}
+                  href="/blogs/best-budgeting-apps-for-beginners"
+                  onClick={(e) => handleLink(e, '/blogs/best-budgeting-apps-for-beginners')}
                   className="hover:text-white transition-colors"
                 >
-                  Beauty (2 Guides)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blogs/capsule-wardrobe-essentials-for-women"
-                  onClick={(e) => handleLink(e, '/blogs/capsule-wardrobe-essentials-for-women')}
-                  className="hover:text-white transition-colors"
-                >
-                  Style (2 Guides)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blogs/how-to-manage-money-in-your-20s"
-                  onClick={(e) => handleLink(e, '/blogs/how-to-manage-money-in-your-20s')}
-                  className="hover:text-white transition-colors"
-                >
-                  Money (3 Guides)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blogs/ai-tools-every-college-girl-should-know"
-                  onClick={(e) => handleLink(e, '/blogs/ai-tools-every-college-girl-should-know')}
-                  className="hover:text-white transition-colors"
-                >
-                  Digital (2 Guides)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blogs/a-realistic-self-care-routine-for-busy-girls"
-                  onClick={(e) => handleLink(e, '/blogs/a-realistic-self-care-routine-for-busy-girls')}
-                  className="hover:text-white transition-colors"
-                >
-                  Life (2 Guides)
+                  Best Budgeting Apps for Beginners
                 </a>
               </li>
             </ul>

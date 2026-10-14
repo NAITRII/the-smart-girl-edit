@@ -26,22 +26,23 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         <a
           href={post.exactPath}
           onClick={handleClick}
+          aria-label={`Read complete article: ${post.title}`}
           className="grid grid-cols-1 lg:grid-cols-12 gap-0 text-inherit no-underline"
         >
-          {/* Featured Image */}
-          <div className="lg:col-span-7 overflow-hidden">
+          {/* Featured Image - Small Size Container */}
+          <div className="lg:col-span-5 overflow-hidden max-h-60 sm:max-h-64 bg-[#F2EDE4] flex items-center justify-center">
             <ResponsiveImage
               src={post.featuredImage}
-              alt={post.imageAlt}
+              alt={post.imageAlt || `Featured editorial image for ${post.title}`}
               aspectRatio="16:9"
               priority
-              className="group-hover:scale-[1.02] transition-transform duration-700"
+              className="w-full h-full max-h-60 sm:max-h-64 object-cover group-hover:scale-[1.02] transition-transform duration-700"
             />
           </div>
 
           {/* Featured Content Details */}
-          <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between bg-[#FFFFFF]">
-            <div className="space-y-4">
+          <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between bg-[#FFFFFF]">
+            <div className="space-y-3">
               {/* Zero-Pill Unboxed Metadata with separators */}
               <div className="flex items-center gap-2 text-xs tracking-wider uppercase text-[#7D7267] font-medium">
                 <span className="text-[#966746] font-semibold">{post.category}</span>
@@ -51,21 +52,24 @@ export const BlogCard: React.FC<BlogCardProps> = ({
                 <span>{post.publishedDate}</span>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-tight">
+              {/* Title as Anchor Text */}
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-tight">
                 {post.title}
               </h3>
 
               {/* Subtitle / Excerpt */}
-              <p className="text-sm sm:text-base text-[#61574E] leading-relaxed line-clamp-3 font-sans">
+              <p className="text-xs sm:text-sm text-[#61574E] leading-relaxed line-clamp-2 font-sans">
                 {post.excerpt}
               </p>
             </div>
 
-            {/* Read More Link */}
-            <div className="pt-6 mt-6 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-[#241F1C] group-hover:text-[#7A5B45]">
-              <span>Read Article</span>
-              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            {/* Read More Link with Explicit Anchor Text */}
+            <div className="pt-4 mt-4 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-[#241F1C] group-hover:text-[#7A5B45]">
+              <span className="flex items-center gap-1.5">
+                <span>Read Full Article:</span>
+                <span className="font-serif normal-case italic font-medium text-[#7A5B45] line-clamp-1">{post.title}</span>
+              </span>
+              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
             </div>
           </div>
         </a>
@@ -78,21 +82,22 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       <a
         href={post.exactPath}
         onClick={handleClick}
+        aria-label={`Read article: ${post.title}`}
         className="flex flex-col h-full text-inherit no-underline"
       >
-        {/* Card Image */}
-        <div className="overflow-hidden">
+        {/* Card Image - Small Size Container */}
+        <div className="overflow-hidden max-h-48 sm:max-h-52 bg-[#F2EDE4]">
           <ResponsiveImage
             src={post.featuredImage}
-            alt={post.imageAlt}
-            aspectRatio="4:3"
-            className="group-hover:scale-[1.03] transition-transform duration-700"
+            alt={post.imageAlt || `Editorial image for ${post.title}`}
+            aspectRatio="16:9"
+            className="w-full max-h-48 sm:max-h-52 object-cover group-hover:scale-[1.03] transition-transform duration-700"
           />
         </div>
 
         {/* Card Body */}
-        <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-[#FFFFFF]">
-          <div className="space-y-3">
+        <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between bg-[#FFFFFF]">
+          <div className="space-y-2.5">
             {/* Zero-Pill Metadata */}
             <div className="flex items-center gap-2 text-xs tracking-wider uppercase text-[#7D7267] font-medium">
               <span className="text-[#966746] font-semibold">{post.category}</span>
@@ -100,21 +105,24 @@ export const BlogCard: React.FC<BlogCardProps> = ({
               <span>{post.readTime}</span>
             </div>
 
-            {/* Title */}
-            <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-snug">
+            {/* Title as Anchor Text */}
+            <h3 className="text-lg sm:text-xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-snug">
               {post.title}
             </h3>
 
             {/* Excerpt */}
-            <p className="text-xs sm:text-sm text-[#61574E] leading-relaxed line-clamp-3 font-sans">
+            <p className="text-xs sm:text-sm text-[#61574E] leading-relaxed line-clamp-2 font-sans">
               {post.excerpt}
             </p>
           </div>
 
-          {/* Bottom Action */}
-          <div className="pt-5 mt-5 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#241F1C] group-hover:text-[#7A5B45]">
-            <span>Read More</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          {/* Bottom Action with Descriptive Anchor Text */}
+          <div className="pt-4 mt-4 border-t border-[#F0EBE3] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#241F1C] group-hover:text-[#7A5B45]">
+            <span className="flex items-center gap-1">
+              <span>Read Guide:</span>
+              <span className="font-serif normal-case italic font-normal text-[#7A5B45] line-clamp-1">{post.title}</span>
+            </span>
+            <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
           </div>
         </div>
       </a>
