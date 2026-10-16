@@ -253,7 +253,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   className="hover:text-[#1F1B18] hover:underline flex items-start gap-1.5"
                 >
                   <span className="text-[#8B6B52] font-mono">{idx + 1}.</span>
-                  <span>{section.heading}</span>
+                  <span>{section.heading.trim().endsWith('?') ? section.heading : `${section.heading.trim()}?`}</span>
                 </a>
               </li>
             ))}
@@ -278,7 +278,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
             </div>
             <div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1B18] tracking-tight border-b-2 border-[#8B6B52]/40 pb-3 inline-block">
-                {post.directAnswer.question}
+                {post.directAnswer.question.trim().endsWith('?') ? post.directAnswer.question : `${post.directAnswer.question.trim()}?`}
               </h2>
             </div>
             <p className="text-sm sm:text-base text-[#423A33] leading-relaxed max-w-2xl mx-auto pt-1">
@@ -302,7 +302,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   </span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] tracking-tight leading-snug border-l-4 border-[#8B6B52] pl-4 py-0.5">
-                  {section.heading}
+                  {section.heading.trim().endsWith('?') ? section.heading : `${section.heading.trim()}?`}
                 </h2>
               </div>
 
@@ -471,7 +471,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                 AEO Direct Answers
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] mt-1 border-l-4 border-[#8B6B52] pl-3.5">
-                Have More Questions About {post.title}?
+                Have More Questions About {post.title.replace(/\?+$/, '')}?
               </h2>
             </div>
 

@@ -52,10 +52,10 @@ export const BlogCard: React.FC<BlogCardProps> = ({
                 <span>{post.publishedDate}</span>
               </div>
 
-              {/* Title as Anchor Text */}
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-tight">
-                {post.title}
-              </h3>
+              {/* Title as Anchor Text (H2 with question mark) */}
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-tight">
+                {post.title.endsWith('?') ? post.title : (['skincare-routine-for-beginners', 'capsule-wardrobe-essentials-for-women', 'how-to-manage-money-in-your-20s'].includes(post.id) ? `${post.title}?` : post.title)}
+              </h2>
 
               {/* Subtitle / Excerpt */}
               <p className="text-xs sm:text-sm text-[#61574E] leading-relaxed line-clamp-2 font-sans">
@@ -105,10 +105,10 @@ export const BlogCard: React.FC<BlogCardProps> = ({
               <span>{post.readTime}</span>
             </div>
 
-            {/* Title as Anchor Text */}
-            <h3 className="text-lg sm:text-xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-snug">
-              {post.title}
-            </h3>
+            {/* Title as Anchor Text (H2 with question mark) */}
+            <h2 className="text-lg sm:text-xl font-serif font-semibold text-[#201D1A] group-hover:text-[#7A5B45] transition-colors leading-snug">
+              {post.title.endsWith('?') ? post.title : (['skincare-routine-for-beginners', 'capsule-wardrobe-essentials-for-women', 'how-to-manage-money-in-your-20s'].includes(post.id) ? `${post.title}?` : post.title)}
+            </h2>
 
             {/* Excerpt */}
             <p className="text-xs sm:text-sm text-[#61574E] leading-relaxed line-clamp-2 font-sans">
