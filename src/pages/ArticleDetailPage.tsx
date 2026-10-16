@@ -222,14 +222,14 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
       </header>
 
       {/* Featured Image Container (Small size frame) */}
-      <div className="max-w-2xl mx-auto px-6 mb-10">
-        <div className="border border-[#E2D8CC] p-2 bg-white shadow-md">
+      <div className="max-w-md sm:max-w-lg mx-auto px-6 mb-8 flex flex-col items-center">
+        <div className="border border-[#E2D8CC] p-2 bg-white shadow-sm w-full">
           <ResponsiveImage
             src={post.featuredImage}
             alt={post.imageAlt || `Editorial feature image for ${post.title}`}
             aspectRatio="16:9"
             priority
-            className="w-full max-h-[300px] sm:max-h-[340px] object-cover"
+            className="w-full max-h-[200px] sm:max-h-[220px] object-cover"
           />
         </div>
         <p className="text-xs font-serif italic text-[#7C7166] mt-2.5 text-center">
@@ -269,32 +269,45 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
           </ul>
         </nav>
 
-        {/* AEO Executive Summary / Direct Answer Block */}
+        {/* Core Guide Direct Answer Section (Styled with Curated Question & Answer Element) */}
         {post.directAnswer && (
-          <div className="mb-12 p-6 sm:p-8 bg-[#F7F2EB] border border-[#DDD3C7] space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#8B6B52]">
+          <section className="mb-14 p-8 sm:p-10 bg-[#FAF7F2] border border-[#DDD3C7] shadow-xs text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F0E8DC] border border-[#DDD3C7] text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Direct Answer · Key Takeaway</span>
+              <span>Core Guide Question & Editorial Answer</span>
             </div>
-            <h3 className="text-base sm:text-lg font-serif font-bold text-[#1F1B18]">
-              {post.directAnswer.question}
-            </h3>
-            <p className="text-sm sm:text-base text-[#3E362F] leading-relaxed font-sans">
-              {post.directAnswer.answer}
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1B18] tracking-tight border-b-2 border-[#8B6B52]/40 pb-3 inline-block">
+                {post.directAnswer.question}
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#423A33] leading-relaxed max-w-2xl mx-auto pt-1">
+              <strong className="text-[#1F1B18] font-semibold">The Direct Answer: </strong>
+              <span>{post.directAnswer.answer}</span>
             </p>
-          </div>
+          </section>
         )}
 
         {/* Section Contents */}
-        <div className="space-y-12 text-[#2B2622] leading-relaxed text-[16px] sm:text-[17px]">
+        <div className="space-y-14 text-[#2B2622] leading-relaxed text-[16px] sm:text-[17px]">
           {post.sections.map((section, index) => (
             <section key={section.id} id={section.id} className="scroll-mt-24 space-y-5">
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] tracking-tight pt-2 border-t border-[#EAE3D9] first:border-t-0">
-                {section.heading}
-              </h2>
+              <div className="pt-8 border-t border-[#EAE3D9] first:border-t-0 first:pt-0">
+                <div className="flex items-center gap-2 mb-2.5">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#8B6B52] text-white text-xs font-mono font-semibold">
+                    {index + 1}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-widest font-semibold text-[#8B6B52]">
+                    Core Editorial Question
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] tracking-tight leading-snug border-l-4 border-[#8B6B52] pl-4 py-0.5">
+                  {section.heading}
+                </h2>
+              </div>
 
               {section.subheading && (
-                <p className="text-sm font-medium uppercase tracking-wider text-[#8B6B52] -mt-2">
+                <p className="text-sm font-medium uppercase tracking-wider text-[#8B6B52] pl-5 -mt-2">
                   {section.subheading}
                 </p>
               )}
@@ -302,6 +315,25 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               {/* Render Section Text with Markdown-like bold / links */}
               <div className="space-y-4 font-sans leading-[1.8] text-[#3D352E]">
                 {section.content.split('\n\n').map((paragraph, pIdx) => {
+                  // Direct Answer Callout Block
+                  if (paragraph.startsWith('**The Direct Answer:**')) {
+                    const cleanAnswer = paragraph.replace('**The Direct Answer:**', '').trim();
+                    return (
+                      <div
+                        key={pIdx}
+                        className="p-5 bg-[#FAF7F2] border-l-4 border-[#8B6B52] border-y border-r border-[#E8E1D7] text-[#2E2722] text-sm sm:text-base leading-relaxed my-4 shadow-xs"
+                      >
+                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8B6B52] mb-1.5">
+                          <Check className="w-4 h-4 text-[#8B6B52]" />
+                          <span>The Direct Answer</span>
+                        </div>
+                        <div className="font-medium text-[#2E2722]">
+                          {renderRichText(cleanAnswer, onNavigate)}
+                        </div>
+                      </div>
+                    );
+                  }
+
                   // Check for subheadings inside paragraph
                   if (paragraph.startsWith('### ')) {
                     return (
@@ -331,19 +363,29 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   }
 
                   return (
-                    <p
-                      key={pIdx}
-                      className={
-                        index === 0 && pIdx === 0
-                          ? 'first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-[#8B6B52]'
-                          : ''
-                      }
-                    >
+                    <p key={pIdx}>
                       {renderRichText(paragraph, onNavigate)}
                     </p>
                   );
                 })}
               </div>
+
+              {/* Section Visual Asset (Small size container with alt text) */}
+              {section.image && (
+                <div className="my-6 max-w-sm mx-auto p-2 border border-[#E2D8CC] bg-white shadow-xs">
+                  <ResponsiveImage
+                    src={section.image.src}
+                    alt={section.image.alt}
+                    aspectRatio="16:9"
+                    className="w-full max-h-[180px] sm:max-h-[200px] object-cover"
+                  />
+                  {section.image.caption && (
+                    <p className="text-xs font-serif italic text-[#7C7166] mt-2 text-center">
+                      {section.image.caption}
+                    </p>
+                  )}
+                </div>
+              )}
 
               {/* Callout Box */}
               {section.calloutBox && (
@@ -380,8 +422,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
           {/* Comparison Table (For Budgeting Apps Article) */}
           {post.comparisonTable && (
             <section className="scroll-mt-24 pt-6 space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18]">
-                At-a-Glance Comparison Matrix
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] border-l-4 border-[#8B6B52] pl-3.5">
+                How Do the Top Budgeting Apps Compare Head-to-Head?
               </h2>
               <p className="text-sm text-[#665D54]">
                 Side-by-side evaluation of leading beginner budgeting apps in 2026.
@@ -428,8 +470,8 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               <span className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
                 AEO Direct Answers
               </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] mt-1">
-                Frequently Asked Questions: {post.title}
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] mt-1 border-l-4 border-[#8B6B52] pl-3.5">
+                Have More Questions About {post.title}?
               </h2>
             </div>
 
@@ -588,37 +630,56 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
   );
 };
 
-// Helper function to render text with Markdown bold and internal links
+// Helper function to render text with Markdown bold, internal links, and inline images
 function renderRichText(text: string, onNavigate: (path: string) => void) {
-  // Regex to match markdown links [Title](url) and **bold**
+  // Regex to match markdown images ![alt](url) and markdown links [anchor text](url)
   const parts = [];
-  const linkRegex = /\[(.*?)\]\((.*?)\)/g;
+  const tokenRegex = /(!?)\[(.*?)\]\((.*?)\)/g;
   let lastIndex = 0;
   let match;
 
-  while ((match = linkRegex.exec(text)) !== null) {
+  while ((match = tokenRegex.exec(text)) !== null) {
     // Push preceding text
     if (match.index > lastIndex) {
       parts.push(parseBold(text.substring(lastIndex, match.index)));
     }
 
-    const linkText = match[1];
-    const linkUrl = match[2];
+    const isImage = match[1] === '!';
+    const altOrText = match[2];
+    const url = match[3];
 
-    parts.push(
-      <a
-        key={match.index}
-        href={linkUrl}
-        onClick={(e) => {
-          e.preventDefault();
-          onNavigate(linkUrl);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        className="font-semibold text-[#8B6B52] underline decoration-[#8B6B52]/40 hover:decoration-[#8B6B52] transition-colors"
-      >
-        {linkText}
-      </a>
-    );
+    if (isImage) {
+      parts.push(
+        <span key={match.index} className="block my-5 max-w-sm mx-auto p-2 border border-[#E2D8CC] bg-white shadow-xs">
+          <img
+            src={url}
+            alt={altOrText || 'Editorial lifestyle guide illustration'}
+            loading="lazy"
+            className="w-full max-h-[190px] object-cover"
+          />
+          {altOrText && (
+            <span className="block text-xs font-serif italic text-[#7C7166] mt-2 text-center">
+              {altOrText}
+            </span>
+          )}
+        </span>
+      );
+    } else {
+      parts.push(
+        <a
+          key={match.index}
+          href={url}
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate(url);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="font-semibold text-[#8B6B52] underline decoration-[#8B6B52]/40 hover:decoration-[#8B6B52] transition-colors"
+        >
+          {altOrText}
+        </a>
+      );
+    }
 
     lastIndex = match.index + match[0].length;
   }

@@ -150,13 +150,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
 
             {/* Right Column: Hero Visual Asset (Small size editorial frame) */}
             <div className="lg:col-span-5 relative flex flex-col items-center">
-              <div className="border border-[#DDD3C7] p-2 bg-white shadow-lg w-full max-w-sm sm:max-w-md">
+              <div className="border border-[#DDD3C7] p-2 bg-white shadow-md w-full max-w-xs sm:max-w-sm">
                 <ResponsiveImage
                   src={heroImg}
                   alt="Curated journal with morning thoughts, ceramic coffee mug, and sunglasses representing an intentional blog about lifestyle"
                   aspectRatio="16:9"
                   priority
-                  className="w-full max-h-[240px] sm:max-h-[270px] object-cover"
+                  className="w-full max-h-[190px] sm:max-h-[210px] object-cover"
                 />
               </div>
               {/* Subtle caption */}
@@ -171,15 +171,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
       {/* Pillar Categories Section */}
       <section className="py-16 bg-[#FAF8F5] border-b border-[#E8E1D7]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
-              Curated Departments
-            </span>
-            <h2 className="text-3xl font-serif font-bold text-[#1F1B18] tracking-tight">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F0E8DC] border border-[#DDD3C7] text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Curated Departments</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1B18] tracking-tight border-b-2 border-[#8B6B52]/40 pb-3 inline-block">
               What Will You Discover in Our Beauty and Lifestyle Blog?
             </h2>
-            <p className="text-sm text-[#665D54] leading-relaxed">
-              Explore our core categories tailored specifically for young women navigating personal growth, style confidence, and financial wellness.
+            <p className="text-sm sm:text-base text-[#5E544A] leading-relaxed pt-1">
+              <strong className="text-[#1F1B18]">The Direct Answer:</strong> In our blog about lifestyle, you will discover actionable, research-backed advice across 5 key pillars—from gentle, simple skincare routines for beginners and timeless capsule wardrobe essentials to stress-free money management in your 20s and mindful daily habits.
             </p>
           </div>
 
@@ -225,19 +226,126 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
         </div>
       </section>
 
+      {/* Three Foundational Questions & Answers Section (Skincare, Capsule Wardrobe & Money in 20s) */}
+      <section className="py-16 bg-[#F6F1EA] border-b border-[#E8E1D7]">
+        <div className="max-w-7xl mx-auto px-6 space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ECE3D5] border border-[#DDD3C7] text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Core Lifestyle Curations</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1B18] tracking-tight border-b-2 border-[#8B6B52]/40 pb-3 inline-block">
+              What Are the 3 Essential Questions Every Woman Asks First?
+            </h2>
+            <p className="text-sm sm:text-base text-[#5E544A] leading-relaxed pt-1">
+              <strong className="text-[#1F1B18]">The Direct Answer:</strong> Young women building intentional lifestyles consistently seek definitive answers for three foundational pillars: building a gentle skincare routine for beginners, curating 14 capsule wardrobe essentials, and mastering personal finance in their twenties.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* 1. Skincare Routine for Beginners */}
+            <div className="border border-[#E2D8CC] bg-white p-7 flex flex-col justify-between shadow-xs hover:border-[#8B6B52] transition-colors">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#F5EFE7] border border-[#DDD3C7] text-[11px] uppercase tracking-wider font-semibold text-[#8B6B52]">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Skincare for Beginners</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1B18] border-b-2 border-[#8B6B52]/30 pb-2">
+                  What Is the Best Skincare Routine for Beginners?
+                </h2>
+                <p className="text-xs sm:text-sm text-[#5E544A] leading-relaxed">
+                  <strong className="text-[#1F1B18]">The Direct Answer:</strong> The best routine consists of four core steps: a gentle cleanser, a hydrating essence, a ceramide barrier moisturizer, and daily SPF 30+. In the evening, do a gentle double cleanse to dissolve sunscreen and stimulate natural cellular skin repair.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-[#F0EBE3]">
+                <a
+                  href="/blogs/skincare-routine-for-beginners"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/blogs/skincare-routine-for-beginners');
+                  }}
+                  className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52] hover:text-[#1F1B18] flex items-center justify-between"
+                >
+                  <span>Read Complete Skincare Guide</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* 2. Capsule Wardrobe Essentials */}
+            <div className="border border-[#E2D8CC] bg-white p-7 flex flex-col justify-between shadow-xs hover:border-[#8B6B52] transition-colors">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#F5EFE7] border border-[#DDD3C7] text-[11px] uppercase tracking-wider font-semibold text-[#8B6B52]">
+                  <Heart className="w-3.5 h-3.5" />
+                  <span>Capsule Wardrobe</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1B18] border-b-2 border-[#8B6B52]/30 pb-2">
+                  What Are the Core Capsule Wardrobe Essentials You’ll Actually Wear?
+                </h2>
+                <p className="text-xs sm:text-sm text-[#5E544A] leading-relaxed">
+                  <strong className="text-[#1F1B18]">The Direct Answer:</strong> A functional capsule revolves around 14 versatile staples: tailored oversized blazer, white poplin button-down, classic crewneck tees, wide-leg trousers, straight denim, trench coat, satin slip skirt, and white leather sneakers.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-[#F0EBE3]">
+                <a
+                  href="/blogs/capsule-wardrobe-essentials-for-women"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/blogs/capsule-wardrobe-essentials-for-women');
+                  }}
+                  className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52] hover:text-[#1F1B18] flex items-center justify-between"
+                >
+                  <span>Read Capsule Wardrobe Guide</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* 3. How to Manage Money in Your 20s */}
+            <div className="border border-[#E2D8CC] bg-white p-7 flex flex-col justify-between shadow-xs hover:border-[#8B6B52] transition-colors">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#F5EFE7] border border-[#DDD3C7] text-[11px] uppercase tracking-wider font-semibold text-[#8B6B52]">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  <span>Money in Your 20s</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1B18] border-b-2 border-[#8B6B52]/30 pb-2">
+                  How Do You Manage Your Money in Your 20s Without Stress?
+                </h2>
+                <p className="text-xs sm:text-sm text-[#5E544A] leading-relaxed">
+                  <strong className="text-[#1F1B18]">The Direct Answer:</strong> Build a 3–6 month emergency fund in an HYSA, capture any employer 401(k) match immediately, allocate your take-home pay via the 50/30/20 budget, and automate regular investments into a tax-free Roth IRA.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-[#F0EBE3]">
+                <a
+                  href="/blogs/how-to-manage-money-in-your-20s"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/blogs/how-to-manage-money-in-your-20s');
+                  }}
+                  className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52] hover:text-[#1F1B18] flex items-center justify-between"
+                >
+                  <span>Read Money Roadmap Guide</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Blog Articles Section */}
       <section id="articles-feed" className="py-20 max-w-7xl mx-auto px-6 scroll-mt-20">
         {/* Section Header with Category Filter Buttons */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#E8E1D7]">
-          <div>
+          <div className="max-w-xl">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#8B6B52]">
               In-Depth Editorial Features ({filteredPosts.length} Guides)
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1B18] mt-1">
-              Featured Articles & Lifestyle Tips for Women
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1B18] mt-1 border-l-4 border-[#8B6B52] pl-3.5">
+              Which Featured Articles & Lifestyle Tips Should You Read First?
             </h2>
-            <p className="text-sm text-[#665D54] mt-1">
-              Read comprehensive, long-form guides crafted to simplify your beauty, wardrobe, and money decisions.
+            <p className="text-sm text-[#5E544A] mt-2">
+              <strong className="text-[#1F1B18]">The Direct Answer:</strong> Start with our three foundational deep dives: master healthy skin with our <a href="/blogs/skincare-routine-for-beginners" onClick={(e) => { e.preventDefault(); onNavigate('/blogs/skincare-routine-for-beginners'); }} className="text-[#8B6B52] font-semibold underline decoration-[#8B6B52]/40 hover:decoration-[#8B6B52]">skincare routine for beginners</a>, curate an effortless edit with <a href="/blogs/capsule-wardrobe-essentials-for-women" onClick={(e) => { e.preventDefault(); onNavigate('/blogs/capsule-wardrobe-essentials-for-women'); }} className="text-[#8B6B52] font-semibold underline decoration-[#8B6B52]/40 hover:decoration-[#8B6B52]">capsule wardrobe essentials</a>, and conquer personal finance with <a href="/blogs/how-to-manage-money-in-your-20s" onClick={(e) => { e.preventDefault(); onNavigate('/blogs/how-to-manage-money-in-your-20s'); }} className="text-[#8B6B52] font-semibold underline decoration-[#8B6B52]/40 hover:decoration-[#8B6B52]">how to manage money in your 20s</a>.
             </p>
           </div>
 
@@ -314,11 +422,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenNewsletter
               <HelpCircle className="w-4 h-4" />
               <span>Lifestyle Editorial Insights</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18]">
-              Essential Lifestyle Tips for Women in Their Twenties & Beyond
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1B18] border-l-4 border-[#8B6B52] pl-3.5">
+              What Are the Essential Lifestyle Tips for Women in Their Twenties & Beyond?
             </h2>
-            <p className="text-sm text-[#665D54] leading-relaxed">
-              Straightforward answers to the most frequently asked questions about building a balanced, stylish, and financially sound daily routine.
+            <p className="text-sm text-[#5E544A] leading-relaxed pt-1">
+              <strong className="text-[#1F1B18]">The Direct Answer:</strong> The most transformative habits are establishing an automated 50/30/20 money framework, mastering a 4-step barrier skincare routine, anchoring your wardrobe with 14 versatile capsule staples, and taking intentional digital pauses to avoid comparison fatigue.
             </p>
           </div>
 

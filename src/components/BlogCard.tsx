@@ -30,13 +30,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({
           className="grid grid-cols-1 lg:grid-cols-12 gap-0 text-inherit no-underline"
         >
           {/* Featured Image - Small Size Container */}
-          <div className="lg:col-span-5 overflow-hidden max-h-60 sm:max-h-64 bg-[#F2EDE4] flex items-center justify-center">
+          <div className="lg:col-span-5 overflow-hidden max-h-48 sm:max-h-52 bg-[#F2EDE4] flex items-center justify-center">
             <ResponsiveImage
               src={post.featuredImage}
               alt={post.imageAlt || `Featured editorial image for ${post.title}`}
               aspectRatio="16:9"
               priority
-              className="w-full h-full max-h-60 sm:max-h-64 object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              className="w-full h-full max-h-48 sm:max-h-52 object-cover group-hover:scale-[1.02] transition-transform duration-700"
             />
           </div>
 
@@ -86,12 +86,12 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         className="flex flex-col h-full text-inherit no-underline"
       >
         {/* Card Image - Small Size Container */}
-        <div className="overflow-hidden max-h-48 sm:max-h-52 bg-[#F2EDE4]">
+        <div className="overflow-hidden max-h-36 sm:max-h-40 bg-[#F2EDE4]">
           <ResponsiveImage
             src={post.featuredImage}
             alt={post.imageAlt || `Editorial image for ${post.title}`}
             aspectRatio="16:9"
-            className="w-full max-h-48 sm:max-h-52 object-cover group-hover:scale-[1.03] transition-transform duration-700"
+            className="w-full max-h-36 sm:max-h-40 object-cover group-hover:scale-[1.03] transition-transform duration-700"
           />
         </div>
 
