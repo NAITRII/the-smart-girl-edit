@@ -1,21 +1,21 @@
 import { BlogPost, Author } from '../types/blog';
 
-// Imported generated images for Vite build stability and performance
-import skincareImg from '../assets/images/skincare_routine_beginners_1791989582996.jpg';
-import budgetingImg from '../assets/images/budgeting_apps_finance_1791989586154.jpg';
-import wardrobeImg from '../assets/images/capsule_wardrobe_fashion_1791989587716.jpg';
-import heroImg from '../assets/images/hero_editorial_lifestyle_1791989582027.jpg';
-import authorAvatar from '../assets/images/author_avatar_editor_1791989587856.jpg';
+// Imported lightweight optimized WebP images (<100KB per image)
+import skincareImg from '../assets/images/skincare_routine_beginners_1791989582996.webp';
+import budgetingImg from '../assets/images/budgeting_apps_finance_1791989586154.webp';
+import wardrobeImg from '../assets/images/capsule_wardrobe_fashion_1791989587716.webp';
+import heroImg from '../assets/images/hero_editorial_lifestyle_1791989582027.webp';
+import authorAvatar from '../assets/images/author_avatar_editor_1791989587856.webp';
 
 // New article images
-import viralBeautyImg from '../assets/images/viral_beauty_products_1791994513546.jpg';
-import personalStyleImg from '../assets/images/find_personal_style_1791994516296.jpg';
-import manageMoneyImg from '../assets/images/manage_money_twenties_1791994517019.jpg';
-import stopImpulseImg from '../assets/images/stop_impulse_buying_1791994516098.jpg';
-import aiToolsImg from '../assets/images/ai_tools_college_girl_1791994549769.jpg';
-import socialMediaShoppingImg from '../assets/images/social_media_shopping_1791994550122.jpg';
-import productEvalImg from '../assets/images/online_product_eval_1791994551406.jpg';
-import selfCareImg from '../assets/images/self_care_busy_girls_1791994550484.jpg';
+import viralBeautyImg from '../assets/images/viral_beauty_products_1791994513546.webp';
+import personalStyleImg from '../assets/images/find_personal_style_1791994516296.webp';
+import manageMoneyImg from '../assets/images/manage_money_twenties_1791994517019.webp';
+import stopImpulseImg from '../assets/images/stop_impulse_buying_1791994516098.webp';
+import aiToolsImg from '../assets/images/ai_tools_college_girl_1791994549769.webp';
+import socialMediaShoppingImg from '../assets/images/social_media_shopping_1791994550122.webp';
+import productEvalImg from '../assets/images/online_product_eval_1791994551406.webp';
+import selfCareImg from '../assets/images/self_care_busy_girls_1791994550484.webp';
 
 export { heroImg, authorAvatar };
 
